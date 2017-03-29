@@ -1,0 +1,28 @@
+{
+  "name": "auction-app",
+  "description": "Online auction app",
+  "private": true,
+  "scripts": {
+    "start": "live-server"
+  },
+  "dependencies": {
+    "@angular/common": "2.4.10",
+    "@angular/compiler": "2.4.10",
+    "@angular/core": "2.4.10",
+    "@angular/forms": "2.4.10",
+    "@angular/http": "2.4.10",
+    "@angular/platform-browser": "2.4.10",
+    "@angular/platform-browser-dynamic": "2.4.10",
+    "@angular/router": "^3.4.10",
+    "bootstrap": "^3.3.7",
+    "core-js": "^2.4.0",
+    "jquery": "^3.2.1",
+    "rxjs": "5.2.0",
+    "systemjs": "0.19.27",
+    "zone.js": "^0.7.2"
+  },
+  "devDependencies": {
+    "live-server": "1.2.0",
+    "typescript": "^2.0.0"
+  }
+}
