@@ -23,6 +23,8 @@ import ProductDetailComponent from './components/product-detail/product-detail';
                     FooterComponent,
                     NavbarComponent,
                     ProductItemComponent,
+                    HomeComponent,
+                    ProductDetailComponent,
                     SearchComponent,
                     StarsComponent ],
     providers: [ ProductService, { provide: LocationStrategy, useClass: HashLocationStrategy } ],

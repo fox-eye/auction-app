@@ -11,11 +11,11 @@ import { Product, ProductService } from '../../services/product-service';
             </div>
         </div>
         <div class="row">
-            <div *ngFor="let product of products" ? class="col-sm-4 col-lg-4 col-md-4">
+            <div *ngFor="let product of products" class="col-sm-4 col-lg-4 col-md-4">
                 <auction-product-item [product]="product"> ? </auction-product-item>
             </div>
         </div>
-` })
+`})
 export default class HomeComponent {
     products: Product[] = [];
 
