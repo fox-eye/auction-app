@@ -1,22 +1,33 @@
-// tag::annotations[]
-import {Component, OnInit} from '@angular/core';
+import { Component, EventEmitter, Input, Output, OnChanges, SimpleChange } from '@angular/core';
 @Component({
-  templateUrl: 'app/components/stars/stars.html',
-  styles: [` .starrating { color: #d17581; }`],
   selector: 'auction-stars',
-  inputs: ['rating', 'count'] // <1>
+  styles: [`.starrating { color: #d17581; }`],
+  templateUrl: 'app/components/stars/stars.html'
 })
-// end::annotations[]
-// tag::class[]
-export default class StarsComponent implements OnInit {
-  count: number = 5; // <1>
-  rating: number = 0; // <2>
-  stars: boolean[] = []; // <3>
+export default class StarsComponent implements OnChanges {
+  private _rating: number;
+  private stars: boolean[];
 
-  ngOnInit() { // <4>
-    for (let i = 1; i <= this.count; i++) {
-      this.stars.push(i > this.rating);
+  private maxStars: number = 5;
+
+  @Input() readonly: boolean = true;
+
+  @Input() get rating(): number {
+    return this._rating;
+  }
+  set rating(value: number) {
+    console.log('set rating!', value);
+    this._rating = value || 0;
+    this.stars = Array(this.maxStars).fill(true, 0, this.rating);
+  }
+
+  @Output() ratingChange: EventEmitter<number> = new EventEmitter();
+
+  fillStarsWithColor(index) {
+    console.log('readonly ?', this.readonly);
+    if (!this.readonly) {
+      this.rating = index + 1;
+      this.ratingChange.emit(this.rating);
     }
   }
 }
-// end::class[]
