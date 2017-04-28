@@ -16,12 +16,16 @@ import ProductDetailComponent from "./components/product-detail/product-detail";
 import {FilterPipe} from "./components/pipes/filter-pipe";
 
 @NgModule({
-    imports:      [ BrowserModule, ReactiveFormsModule, FormsModule
-                    RouterModule.forRoot([
-                        {path: '',                    component: HomeComponent},
-                        {path: 'products/:productId', component: ProductDetailComponent}
-    ]) ],
-    declarations: [ ApplicationComponent,
+    imports: [ 
+                BrowserModule, 
+                ReactiveFormsModule, 
+                FormsModule,
+                RouterModule.forRoot([
+                    {path: '',                    component: HomeComponent},
+                    {path: 'products/:productId', component: ProductDetailComponent}
+            ])],
+    declarations: [ 
+                    ApplicationComponent,
                     CarouselComponent,
                     FooterComponent,
                     NavbarComponent,
@@ -30,9 +34,11 @@ import {FilterPipe} from "./components/pipes/filter-pipe";
                     ProductItemComponent,
                     SearchComponent,
                     StarsComponent,
-                    FilterPipe],
-    providers:    [ProductService,
-                   {provide: LocationStrategy, useClass: HashLocationStrategy}],
+                    FilterPipe
+                ],
+    providers: [
+                    ProductService,
+                    { provide: LocationStrategy, useClass: HashLocationStrategy }],
     bootstrap:    [ ApplicationComponent ]
 })
 export class AppModule { }
