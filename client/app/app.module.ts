@@ -17,6 +17,7 @@ import HomeComponent from "./components/home/home";
 import ProductDetailComponent from "./components/product-detail/product-detail";
 
 @NgModule({
+<<<<<<< HEAD:client/app/app.module.ts
     imports:      [ BrowserModule, ReactiveFormsModule,
                     FormsModule, HttpModule,
                     RouterModule.forRoot([
@@ -24,6 +25,18 @@ import ProductDetailComponent from "./components/product-detail/product-detail";
                         {path: 'products/:productId', component: ProductDetailComponent}
     ]) ],
     declarations: [ ApplicationComponent,
+=======
+    imports: [ 
+                BrowserModule, 
+                ReactiveFormsModule, 
+                FormsModule,
+                RouterModule.forRoot([
+                    {path: '',                    component: HomeComponent},
+                    {path: 'products/:productId', component: ProductDetailComponent}
+            ])],
+    declarations: [ 
+                    ApplicationComponent,
+>>>>>>> f0aa6a79eb07d7ba591e3967203bc412053f93bb:app/app.module.ts
                     CarouselComponent,
                     FooterComponent,
                     NavbarComponent,
@@ -31,10 +44,19 @@ import ProductDetailComponent from "./components/product-detail/product-detail";
                     ProductDetailComponent,
                     ProductItemComponent,
                     SearchComponent,
+<<<<<<< HEAD:client/app/app.module.ts
                     StarsComponent],
     providers:    [ProductService,
                    ONLINE_AUCTION_SERVICES,
                    {provide: LocationStrategy, useClass: HashLocationStrategy}],
+=======
+                    StarsComponent,
+                    FilterPipe
+                ],
+    providers: [
+                    ProductService,
+                    { provide: LocationStrategy, useClass: HashLocationStrategy }],
+>>>>>>> f0aa6a79eb07d7ba591e3967203bc412053f93bb:app/app.module.ts
     bootstrap:    [ ApplicationComponent ]
 })
 export class AppModule { }

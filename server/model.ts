@@ -34,6 +34,7 @@ export function getProducts(params = <any>{}): Product[] {
       p => p.categories.indexOf(params.category.toLowerCase()) !== -1);
   }
 
+<<<<<<< HEAD:server/model.ts
   return result;
 }
 
@@ -43,6 +44,11 @@ export function getProductById(productId: number): Product {
 
 export function getReviewsByProductId(productId: number): Review[] {
   return reviews.filter(r => r.productId === productId);
+=======
+  getAllCategories(): string[] {
+    return ['Books', 'Electronics', 'Hardware'];
+  }
+>>>>>>> f0aa6a79eb07d7ba591e3967203bc412053f93bb:app/services/product-service.ts
 }
 
 var products = [
