@@ -11,11 +11,9 @@ export default class StarsComponent {
 
   private maxStars: number = 5;
 
-  @Input()
-  readonly: boolean = true;
+  @Input() readonly: boolean = true;
 
-  @Input()
-  get rating(): number {
+  @Input() get rating(): number {
     return this._rating;
   }
 
@@ -28,7 +26,6 @@ export default class StarsComponent {
   ratingChange: EventEmitter<number> = new EventEmitter();
 
   fillStarsWithColor(index) {
-
     if (!this.readonly) {
       this.rating = index + 1;
       this.ratingChange.emit(this.rating);

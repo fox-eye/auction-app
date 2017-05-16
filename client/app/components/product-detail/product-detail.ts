@@ -1,17 +1,14 @@
 import {Component, OnDestroy} from '@angular/core';
-import {NgClass} from '@angular/common';
 import {ActivatedRoute} from '@angular/router';
 import {Subscription} from 'rxjs/Subscription';
 
 import {Product, Review, ProductService} from '../../services/product-service';
 import {BidService} from '../../services/bid-service';
-import StarsComponent from '../stars/stars';
 
 @Component({
   selector: 'auction-product-page',
   styles: ['auction-stars.large {font-size: 24px;}'],
-  templateUrl: 'app/components/product-detail/product-detail.html',
-  directives: [NgClass, StarsComponent]
+  templateUrl: 'app/components/product-detail/product-detail.html'
 })
 export default class ProductDetailComponent implements OnDestroy {
   product: Product;
@@ -26,27 +23,26 @@ export default class ProductDetailComponent implements OnDestroy {
 
   private subscription: Subscription;
 
-  constructor(
-      route: ActivatedRoute,
-      productService: ProductService,
-      private bidService: BidService) {
+  constructor(private productService: ProductService,
+              private bidService: BidService,
+              route: ActivatedRoute) {
 
     const productId = parseInt(route.snapshot.params['productId']);
 
-    productService
-      .getProductById(productId)
-      .subscribe(
-        product => {
-          this.product = product;
-          this.currentBid = product.price;
-        },
-        error => console.error(error));
+    this.productService
+        .getProductById(productId)
+        .subscribe(
+            product => {
+              this.product = product;
+              this.currentBid = product.price;
+            },
+            error => console.error(error));
 
-    productService
-      .getReviewsForProduct(productId)
-      .subscribe(
-        reviews => this.reviews = reviews,
-        error => console.error(error));
+    this.productService
+        .getReviewsForProduct(productId)
+        .subscribe(
+            reviews => this.reviews = reviews,
+            error => console.error(error));
   }
 
   toggleWatchProduct() {
@@ -63,12 +59,12 @@ export default class ProductDetailComponent implements OnDestroy {
     }
   }
 
-/* add a router guard to unsubscribe on deactivate*/
-
   ngOnDestroy(): any {
     if (this.subscription) {
       this.subscription.unsubscribe();
     }
+
+    return Promise.resolve(true);
   }
 
   addReview() {

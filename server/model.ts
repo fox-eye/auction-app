@@ -34,7 +34,6 @@ export function getProducts(params = <any>{}): Product[] {
       p => p.categories.indexOf(params.category.toLowerCase()) !== -1);
   }
 
-<<<<<<< HEAD:server/model.ts
   return result;
 }
 
@@ -44,22 +43,10 @@ export function getProductById(productId: number): Product {
 
 export function getReviewsByProductId(productId: number): Review[] {
   return reviews.filter(r => r.productId === productId);
-=======
-  getAllCategories(): string[] {
-    return ['Books', 'Electronics', 'Hardware'];
-  }
->>>>>>> f0aa6a79eb07d7ba591e3967203bc412053f93bb:app/services/product-service.ts
 }
 
 var products = [
-  {
-    "id": 0,
-    "title": 'First Product',
-    "price": 24.99,
-    "rating": 4.3,
-    "description": 'This is a short description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-    "categories": ['electronics', 'hardware']
-  },
+  new Product(0, 'First Product', 24.99, 4.3, 'This is a short description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.', ['electronics', 'hardware']),
   {
     "id": 1,
     "title": "Second Product",

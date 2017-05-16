@@ -1,7 +1,9 @@
 System.config({
+  baseURL: 'base',
   transpiler: 'typescript',
   typescriptOptions: {emitDecoratorMetadata: true},
   map: {
+    'app' : 'client/app',
     'rxjs': 'node_modules/rxjs',
 
     '@angular/common'                  : 'ng:common/bundles/common.umd.js',
@@ -16,6 +18,7 @@ System.config({
     '@angular/common/testing'                  : 'ng:common/bundles/common-testing.umd.js',
     '@angular/compiler/testing'                : 'ng:compiler/bundles/compiler-testing.umd.js',
     '@angular/core/testing'                    : 'ng:core/bundles/core-testing.umd.js',
+    '@angular/forms/testing'                   : 'ng:forms/bundles/forms-testing.umd.js',
     '@angular/http/testing'                    : 'ng:http/bundles/http-testing.umd.js',
     '@angular/platform-browser/testing'        : 'ng:platform-browser/bundles/platform-browser-testing.umd.js',
     '@angular/platform-browser-dynamic/testing': 'ng:platform-browser-dynamic/bundles/platform-browser-dynamic-testing.umd.js',

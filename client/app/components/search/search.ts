@@ -1,12 +1,7 @@
 import {Component} from '@angular/core';
-import {
-    FormControl,
-    FormGroup,
-    FormBuilder,
-    Validators
-} from '@angular/forms';
+import {FormControl, FormGroup, FormBuilder, Validators} from '@angular/forms';
 
-import {ProductService} from 'app/services/product-service';
+import {ProductService} from '../../services/product-service';
 
 @Component({
   selector: 'auction-search',
@@ -34,11 +29,9 @@ export default class SearchComponent {
   }
 }
 
-
 function positiveNumberValidator(control: FormControl): any {
   if (!control.value) return null;
   const price = parseInt(control.value);
-  return price === null ||
-  typeof price === 'number' &&
-  price > 0 ? null : {positivenumber: true};
+  return price === null || typeof price === 'number' && price > 0
+      ? null : {positivenumber: true};
 }

@@ -1,7 +1,8 @@
 import {Component} from '@angular/core';
-import {Observable} from "rxjs/Observable";
+import {Observable} from 'rxjs/Observable';
 
-import {Product, ProductService} from 'app/services/product-service';
+import {Product, ProductService} from '../../services/product-service';
+
 
 @Component({
   selector: 'auction-home-page',
@@ -28,7 +29,7 @@ export default class HomeComponent {
     this.productService.searchEvent
       .subscribe(
         params => this.products = this.productService.search(params),
-          err =>  console.log("Can't get products. Error code: %s, URL: %s "),
+        console.error.bind(console),
         () => console.log('DONE')
       );
   }
